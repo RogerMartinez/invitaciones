@@ -1,0 +1,109 @@
+/* Diseño "Aniversario Rebeca & Victor Hugo" (Fernando Betancourt Ruiz).
+   Medidas tomadas del .ai: mesa de 1366 pt de ancho. --k convierte pt del diseño a px de pantalla,
+   así calc(44 * var(--k)) es una medida de 44 pt en el .ai. Los textos usan --t. */
+:root {
+  --acento: #ab936b;
+  --texto: #111;
+  --fondo: #fff;
+  --fondo-alt: #f9f9f9;
+  --fuente-titulo: 'Cormorant Garamond', serif;   /* sustituye a New York / Minion */
+  --fuente-texto: 'Cormorant Garamond', serif;
+  --fuente-cursiva: 'Cormorant Garamond', serif;  /* sustituye a Monotype Corsiva (en itálica) */
+  --fuente-script: 'Pinyon Script', cursive;      /* sustituye a Palace Script */
+  --k: calc(min(100vw, 480px) / 1366);
+  --t: max(var(--k), 0.33px);   /* escala del texto: igual al diseño, pero nunca menor a lo legible en celular */
+}
+body { font-size: calc(34 * var(--t)); }
+section { text-align: center; position: relative; }
+.caps { text-transform: uppercase; letter-spacing: .22em; font-weight: 500; font-size: calc(34 * var(--t)); line-height: 2.4; }
+.cursiva { font-family: var(--fuente-cursiva); font-style: italic; font-size: calc(48 * var(--t)); }
+h2.cursiva { color: var(--acento); font-weight: 400; font-size: calc(44 * var(--t)); }
+.script { font-family: var(--fuente-script); }
+
+/* Fotos con barra dorada y pestaña redonda */
+.foto { position: relative; }
+.foto img:first-child { width: 100%; object-fit: cover; }
+.foto-1 img:first-child { aspect-ratio: 1366 / 958; object-position: 50% 30%; }
+.foto-2 img:first-child { aspect-ratio: 1366 / 845; object-position: 50% 40%; }
+.mono-portada { position: absolute; left: calc(55 * var(--k)); top: calc(285 * var(--k)); width: calc(225 * var(--k)); }
+.pestana { position: relative; height: calc(10 * var(--k)); background: var(--acento); }
+.pestana::after { content: ''; position: absolute; left: 50%; top: 100%; transform: translateX(-50%);
+  width: calc(130 * var(--k)); height: calc(75 * var(--k)); background: var(--acento); border-radius: 0 0 999px 999px; }
+
+/* Nombres */
+.nombres { padding: calc(150 * var(--k)) calc(60 * var(--k)) calc(110 * var(--k)); }
+.saludo { font-style: italic; color: var(--acento); font-size: calc(40 * var(--t)); margin-bottom: calc(40 * var(--k)); }
+.nombres h1 { font-weight: 500; text-transform: uppercase; letter-spacing: .2em; font-size: calc(52 * var(--t)); line-height: 1.35; }
+.nombres h1 span { display: block; }
+.nombres h1 em { display: block; font-family: var(--fuente-script); text-transform: none; letter-spacing: 0; font-style: normal;
+  font-size: calc(95 * var(--t)); line-height: 1.3; }
+.ramita { width: calc(170 * var(--k)); margin: calc(30 * var(--k)) auto calc(40 * var(--k)); }
+.nombres .cursiva { margin: calc(4 * var(--k)) 0 calc(14 * var(--k)); }
+
+/* Fecha con corona de laurel */
+.fecha { padding: calc(140 * var(--k)) 0 calc(80 * var(--k)); }
+.corona { position: relative; width: calc(1010 * var(--k)); height: calc(470 * var(--k)); margin: calc(80 * var(--k)) auto calc(40 * var(--k)); }
+.laurel { position: absolute; top: 0; height: 100%; }
+.laurel.izq { left: 0; }
+.laurel.der { right: 0; transform: scaleX(-1); }
+.arco { position: absolute; left: 50%; top: calc(20 * var(--k)); transform: translateX(-50%); width: calc(420 * var(--k)); overflow: visible; }
+.arco text { font-family: var(--fuente-titulo); font-size: 34px; letter-spacing: .3em; text-transform: uppercase; fill: var(--texto); }
+.dia { position: absolute; left: 0; right: 0; top: calc(155 * var(--k)); display: flex; align-items: center; justify-content: center; gap: calc(40 * var(--k)); }
+.dia b { font-weight: 400; color: var(--acento); font-size: calc(190 * var(--t)); line-height: 1; letter-spacing: .05em; }
+.dia .lado { text-transform: uppercase; letter-spacing: .25em; font-size: calc(36 * var(--t)); width: calc(140 * var(--k));
+  border-top: 1px solid var(--texto); border-bottom: 1px solid var(--texto); padding: calc(10 * var(--k)) 0; }
+.ciudad { position: absolute; left: 0; right: 0; bottom: calc(20 * var(--k)); text-transform: uppercase; letter-spacing: .22em; font-size: calc(32 * var(--t)); }
+.cr { margin-top: calc(30 * var(--k)); }
+.cal { display: flex; gap: 10px; justify-content: center; margin-top: calc(60 * var(--k)); font-size: calc(30 * var(--t)); letter-spacing: .1em; }
+
+/* Lugares */
+.lugares { background: var(--fondo-alt); padding: calc(60 * var(--k)) calc(90 * var(--k)) calc(90 * var(--k)); }
+.lugar { padding-top: calc(50 * var(--k)); }
+.lugar .caps { margin: calc(20 * var(--k)) 0 calc(30 * var(--k)); line-height: 1.9; }
+.lugar iframe { margin-bottom: calc(40 * var(--k)); }
+.acciones { display: flex; gap: 10px; justify-content: center; align-items: stretch; }
+.acciones .boton.cursiva { font-size: calc(46 * var(--t)); min-width: calc(370 * var(--k)); }
+.acciones .secundario { font-size: calc(30 * var(--t)); letter-spacing: .12em; }
+
+/* Vestimenta */
+.vestimenta { padding: calc(110 * var(--k)) calc(105 * var(--k)) 0; }
+.vestimenta table { width: 100%; border-collapse: collapse; }
+.vestimenta th, .vestimenta td { border: 1px solid var(--texto); text-align: center; }
+.vestimenta th { font-weight: 500; text-transform: uppercase; letter-spacing: .22em; font-size: calc(32 * var(--t)); padding: calc(22 * var(--k)) 0; }
+.vestimenta th:last-child { width: 34%; }
+.vestimenta td { padding: calc(30 * var(--k)) 0; }
+.vestimenta td img { display: inline-block; height: calc(160 * var(--k)); margin: 0 calc(30 * var(--k)); vertical-align: middle; }
+.punto { display: inline-block; width: calc(55 * var(--k)); height: calc(55 * var(--k)); border-radius: 50%; }
+.vestimenta td.cursiva { padding: calc(10 * var(--k)) 0; }
+.banda { margin-top: calc(55 * var(--k)); background: #000; color: #fff; text-transform: uppercase; letter-spacing: .3em;
+  font-size: calc(38 * var(--t)); padding: calc(18 * var(--k)) 0; position: relative; }
+.banda::before, .banda::after { content: '—·—·—·—·—'; position: absolute; top: 50%; transform: translateY(-50%); letter-spacing: 0; opacity: .9; font-size: calc(26 * var(--t)); }
+.banda::before { left: calc(40 * var(--k)); }
+.banda::after { right: calc(40 * var(--k)); }
+
+/* Confirmación */
+.confirmacion { padding: calc(90 * var(--k)) calc(80 * var(--k)) calc(120 * var(--k)); }
+.hojas { position: absolute; left: 0; top: calc(200 * var(--k)); width: calc(150 * var(--k)); pointer-events: none; }
+.icono { width: calc(110 * var(--k)); margin: 0 auto calc(40 * var(--k)); }
+.confirmacion .caps { line-height: 2.6; }
+.rsvp { margin: calc(50 * var(--k)) auto 0; max-width: calc(1000 * var(--k)); }
+.rsvp .nota { font-style: italic; font-size: calc(42 * var(--t)); margin-bottom: calc(30 * var(--k)); }
+.rsvp .pases { font-size: calc(42 * var(--t)); margin-bottom: calc(40 * var(--k)); line-height: 1.5; }
+.rsvp .pases span { font-style: italic; color: var(--acento); font-size: calc(52 * var(--t)); }
+.rsvp form .boton { font-size: calc(46 * var(--t)); justify-self: center; min-width: calc(400 * var(--k)); }
+.rsvp .gracias { color: var(--acento); }
+.contactos { display: flex; gap: calc(45 * var(--k)); justify-content: center; margin-top: calc(60 * var(--k)); }
+.contactos .boton { font-size: calc(46 * var(--t)); letter-spacing: .08em; padding: calc(20 * var(--k)) calc(30 * var(--k)); }
+.contactos em { font-style: italic; letter-spacing: 0; margin-right: .2em; }
+
+/* Regalo, galería y cierre */
+.regalo { padding: calc(40 * var(--k)) calc(60 * var(--k)) calc(60 * var(--k)); }
+.regalo .caps { margin: calc(20 * var(--k)) 0; line-height: 2.8; }
+.galeria { padding: calc(60 * var(--k)) 0 calc(40 * var(--k)); }
+.galeria h2 { margin-bottom: calc(40 * var(--k)); }
+.cierre { padding: calc(80 * var(--k)) 0 calc(110 * var(--k)); }
+.mono-cierre { width: calc(285 * var(--k)); margin: 0 auto calc(120 * var(--k)); }
+.cierre .script { font-size: calc(150 * var(--t)); line-height: 1; }
+footer { background: var(--acento); text-align: center; padding: calc(28 * var(--k)) calc(20 * var(--k)); }
+footer a { color: #fff; text-decoration: none; font-family: 'Montserrat', sans-serif; font-weight: 600; text-transform: uppercase;
+  letter-spacing: .2em; font-size: calc(22 * var(--t)); }
